@@ -1,51 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcluzan <lcluzan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/01 18:11:18 by lcluzan           #+#    #+#             */
-/*   Updated: 2024/11/01 18:15:38 by lcluzan          ###   ########.fr       */
+/*   Created: 2024/05/28 00:03:35 by lcluzan           #+#    #+#             */
+/*   Updated: 2024/05/28 00:04:06 by lcluzan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "libft.h"
 
-void	ft_send_char(char c, pid_t pid)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	char	*new;
+	size_t	i;
+	size_t	j;
 
+	new = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!new)
+		return (NULL);
 	i = 0;
-	while (i < 8)
+	while (s1[i])
 	{
-		if (c & 1)
-			kill(pid, SIGUSR1);
-		else
-			kill(pid, SIGUSR2);
-		c >>= 1;
-		usleep(100);
+		new[i] = s1[i];
 		i++;
 	}
-}
-
-int	main(int ac, char **av)
-{
-	int	pid;
-	int	i;
-
-	if (ac != 3)
+	j = 0;
+	while (s2[j])
 	{
-		ft_putstr_fd("Usage: ./client [PID] [message]\n", 1);
-		return (1);
+		new[i + j] = s2[j];
+		j++;
 	}
-	pid = ft_atoi(av[1]);
-	i = 0;
-	while (av[2][i])
-	{
-		ft_send_char(av[2][i], pid);
-		i++;
-	}
-	ft_send_char(0, pid);
-	return (0);
+	new[i + j] = '\0';
+	return (new);
 }
