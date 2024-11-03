@@ -6,7 +6,7 @@
 /*   By: lcluzan <lcluzan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:01:48 by lcluzan           #+#    #+#             */
-/*   Updated: 2024/11/03 17:10:34 by lcluzan          ###   ########.fr       */
+/*   Updated: 2024/11/03 18:07:41 by lcluzan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@
 void	ft_putstr_fd(const char *s, int fd);
 void	ft_putchar_fd(char c, int fd);
 int		ft_atoi(const char *str);
-
 
 #endif

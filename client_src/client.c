@@ -6,7 +6,7 @@
 /*   By: lcluzan <lcluzan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:11:18 by lcluzan           #+#    #+#             */
-/*   Updated: 2024/11/03 17:58:54 by lcluzan          ###   ########.fr       */
+/*   Updated: 2024/11/03 18:07:25 by lcluzan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	handler(int sig)
 
 void	send_char(char c, pid_t pid)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 8)
